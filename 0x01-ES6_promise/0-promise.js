@@ -1,11 +1,14 @@
-export default function getResponseFromAPI() {
-    return new Promise((resolve, reject) => {
-        // You can resolve with any value you deem appropriate
-        // For example, resolving with a simple object or string
-        resolve({ data: 'This is a mock response' });
-    });
+// Only make Promise
+function getResponseFromAPI() {
+  return new Promise((resolve, reject) => {
+    /* eslint-disable */
+      if (true) {
+        resolve();
+      } else {
+        reject();
+      }
+      /* eslint-enable */
+  });
 }
 
-// The function can be used as follows:
-const response = getResponseFromAPI();
-console.log(response instanceof Promise); // This will log 'true'
+export default getResponseFromAPI;
