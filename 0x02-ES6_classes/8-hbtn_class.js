@@ -1,13 +1,33 @@
+// 8-hbtn_class.js
 export default class HolbertonClass {
   constructor(size, location) {
-    // Create objs
     this._size = size;
     this._location = location;
   }
 
-  // Methods
-
-  [Symbol.toPrimitive](type) {
-    if (type === 'string') return this._location;
+  get size() {
     return this._size;
   }
+
+  set size(newSize) {
+    this._size = newSize;
+  }
+
+  get location() {
+    return this._location;
+  }
+
+  set location(newLocation) {
+    this._location = newLocation;
+  }
+
+  [Symbol.toPrimitive](hint) {
+    if (hint === 'number') {
+      return this._size;
+    }
+    if (hint === 'string') {
+      return this._location;
+    }
+    return null;
+  }
+}
