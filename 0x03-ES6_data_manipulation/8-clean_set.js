@@ -1,10 +1,12 @@
-export default function cleanSet(set, startString) {
-  if (startString === '') return '';
-  let result = '';
-  set.forEach(value => {
-    if (value.startsWith(startString)) {
-      result += value.slice(startString.length) + '-';
+function cleanSet(set, string) {
+  if (!string || !string.length) return '';
+  let filteredValues = '';
+  for (const value of set) {
+    if (value && value.startsWith(string)) {
+      filteredValues += filteredValues.length === 0 ? value.replace(string, '') : value.replace(string, '-');
     }
-  });
-  return result.slice(0, -1);
+  }
+
+  return filteredValues;
 }
+export default cleanSet;
