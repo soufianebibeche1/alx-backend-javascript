@@ -1,5 +1,5 @@
 /**
-a function that prints to stdout the string argument
+a function that prints to stdout the string pass argument
 * */
 
 const displayMessage = (message) => {
